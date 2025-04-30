@@ -1,0 +1,19 @@
+const int ldrPin = A0;      
+const int relePin = 2;   
+
+const int limiarLuz = 500; 
+void setup() {
+ pinMode(relePin, OUTPUT);
+ digitalWrite(relePin, LOW); 
+ Serial.begin(9600);      
+}
+void loop() {
+ int valorLdr = analogRead(ldrPin);
+ Serial.println(valorLdr);          
+ if (valorLdr < limiarLuz) {
+   digitalWrite(relePin, HIGH); 
+ } else {
+   digitalWrite(relePin, LOW); 
+ }
+ delay(500);
+}
