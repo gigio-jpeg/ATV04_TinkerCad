@@ -1,0 +1,22 @@
+int pirPin = 7;    
+int ledPin = 6;
+
+void setup() {
+  pinMode(pirPin, INPUT);    
+  pinMode(ledPin, OUTPUT);   
+  Serial.begin(9600);       
+  delay(5000);             
+}
+
+void loop() {
+  int movimento = digitalRead(pirPin);  
+
+  if (movimento == HIGH) {
+    digitalWrite(ledPin, HIGH);         
+    Serial.println("Movimento detectado!");
+  } else {
+    digitalWrite(ledPin, LOW);          
+  }
+
+  delay(100); 
+}
