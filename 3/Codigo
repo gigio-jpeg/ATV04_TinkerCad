@@ -1,0 +1,23 @@
+const int pinoPIR = 7;  
+const int pinoRele = 8; 
+
+void setup() {
+  pinMode(pinoPIR, INPUT);
+  pinMode(pinoRele, OUTPUT);
+  digitalWrite(pinoRele, LOW); 
+  Serial.begin(9600);
+}
+
+void loop() {
+  int movimento = digitalRead(pinoPIR);
+
+  if (movimento == HIGH) {
+    Serial.println("Movimento detectado! Abrindo a porta...");
+    digitalWrite(pinoRele, HIGH);
+    delay(3000);              
+    digitalWrite(pinoRele, LOW); 
+    Serial.println("Porta fechando...");
+  }
+
+  delay(100);
+}
